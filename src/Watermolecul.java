@@ -55,19 +55,26 @@ public class Watermolecul extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent event) {
         //teken lijn op panel (3)
+
+        int x = Integer.parseInt(xtext.getText());
+        int y = Integer.parseInt(ytext.getText());
+
+        System.out.println(x);
+        System.out.println(y);
+
+
         Graphics paper = panel.getGraphics(); // haal de referentie aan panel op
 
         paper.drawLine(60, 25, 110, 50);
         paper.drawLine(60, 70, 110, 55);
 
         paper.setColor(Color.blue);
-        paper.fillOval(50,20,20,20);
+        paper.fillOval(50, 20, 20, 20);
 
-        paper.fillOval(50,60,20,20);
+        paper.fillOval(50, 60, 20, 20);
 
         paper.setColor(Color.red);
-        paper.fillOval(100,40,30,30);
-
+        paper.fillOval(100, 40, 30, 30);
 
 
     }
