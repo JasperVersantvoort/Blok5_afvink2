@@ -3,9 +3,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Watermolecul  extends JFrame implements ActionListener {
-    private JTextField textfield; //declaratie
-    private JLabel label;
+public class Watermolecul extends JFrame implements ActionListener {
+    private JTextField xtext;
+    private JTextField ytext;
+    private JLabel xlabel;
+    private JLabel ylabel;
     private JButton button;
     private JPanel panel; // declaratie van een window om op te watermolecul in tekenen
 
@@ -16,26 +18,33 @@ public class Watermolecul  extends JFrame implements ActionListener {
         frame.setVisible(true);
 
     }
-    private void createGui(){
+
+    private void createGui() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         Container window = getContentPane();
         window.setLayout(new FlowLayout());
 
-        label = new JLabel("Voer hier iets in");
-        window.add(label);
+        xlabel = new JLabel("X: ");
+        window.add(xlabel);
 
-        textfield = new JTextField("geef hier input"); //initatie
-        textfield.setBackground(Color.green);
-        window.add(textfield);
+        xtext = new JTextField(3);
+        window.add(xtext);
+
+        ylabel = new JLabel("Y: ");
+        window.add(ylabel);
+
+        ytext = new JTextField(3);
+
+        window.add(ytext);
+
 
         button = new JButton("klik");
         window.add(button);
-        window.setBackground(Color.blue);
         button.addActionListener(this); // vergeet niet de inplements
 
         //plaats pannel (2)
         panel = new JPanel();
-        panel.setPreferredSize(new Dimension(200,200));
+        panel.setPreferredSize(new Dimension(200, 200));
         panel.setBackground(Color.white);
         window.add(panel);
         // einde panel
@@ -43,12 +52,23 @@ public class Watermolecul  extends JFrame implements ActionListener {
 
     }
 
-    public void actionPerformed(ActionEvent event){
-        //textfield.setText("Hello World");
-        //label.setText("Er is geklikt");
+
+    public void actionPerformed(ActionEvent event) {
         //teken lijn op panel (3)
         Graphics paper = panel.getGraphics(); // haal de referentie aan panel op
-        paper.drawLine(10,20, 150,150);
+
+        paper.drawLine(60, 25, 110, 50);
+        paper.drawLine(60, 70, 110, 55);
+
+        paper.setColor(Color.blue);
+        paper.fillOval(50,20,20,20);
+
+        paper.fillOval(50,60,20,20);
+
+        paper.setColor(Color.red);
+        paper.fillOval(100,40,30,30);
+
+
 
     }
 }
